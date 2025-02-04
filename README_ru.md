@@ -3,32 +3,22 @@
 Он НЕ ДОЛЖЕН редактироваться вручную.
 -->
 
-# Mattermost для YunoHost
+# Mostlymatter для YunoHost
 
-[![Уровень интеграции](https://apps.yunohost.org/badge/integration/mattermost)](https://ci-apps.yunohost.org/ci/apps/mattermost/)
-![Состояние работы](https://apps.yunohost.org/badge/state/mattermost)
-![Состояние сопровождения](https://apps.yunohost.org/badge/maintained/mattermost)
+[![Уровень интеграции](https://apps.yunohost.org/badge/integration/mostlymatter)](https://ci-apps.yunohost.org/ci/apps/mostlymatter/)
+![Состояние работы](https://apps.yunohost.org/badge/state/mostlymatter)
+![Состояние сопровождения](https://apps.yunohost.org/badge/maintained/mostlymatter)
 
-[![Установите Mattermost с YunoHost](https://install-app.yunohost.org/install-with-yunohost.svg)](https://install-app.yunohost.org/?app=mattermost)
+[![Установите Mostlymatter с YunoHost](https://install-app.yunohost.org/install-with-yunohost.svg)](https://install-app.yunohost.org/?app=mostlymatter)
 
 *[Прочтите этот README на других языках.](./ALL_README.md)*
 
-> *Этот пакет позволяет Вам установить Mattermost быстро и просто на YunoHost-сервер.*  
+> *Этот пакет позволяет Вам установить Mostlymatter быстро и просто на YunoHost-сервер.*  
 > *Если у Вас нет YunoHost, пожалуйста, посмотрите [инструкцию](https://yunohost.org/install), чтобы узнать, как установить его.*
 
 ## Обзор
 
-## Mattermost Team Edition
-
 A free-to-use, open source, self-hosted alternative to proprietary SaaS messaging. Team Edition is your open source “virtual office”, offering all the core productivity benefits of competing SaaS solutions. It deploys as a single Linux binary with PosgreSQL under an MIT license.
-
-## Mattermost Enterprise Edition
-
-To explore the benefits of Mattermost’s enterprise features, you can replace the Mattermost Team Edition binary with a Mattermost Enterprise Edition binary. This version supports upgrading to Mattermost Enterprise Edition E10 or E20.
-
-## YunoHost specific features
-
-This package can install the [*Entreprise Edition*](https://docs.mattermost.com/overview/product.html#mattermost-enterprise-edition) or the [*Team Edition*](https://docs.mattermost.com/overview/product.html#mattermost-team-edition).
 
 Mattermost Mobile and Desktop Apps are available [here](https://mattermost.com/download/)
 
@@ -49,27 +39,24 @@ Mattermost Mobile and Desktop Apps are available [here](https://mattermost.com/d
 
 ## Снимки экрана
 
-![Снимок экрана Mattermost](./doc/screenshots/screenshot.png)
+![Снимок экрана Mostlymatter](./doc/screenshots/screenshot.png)
 
 ## Документация и ресурсы
 
-- Официальный веб-сайт приложения: <http://www.mattermost.org/>
-- Официальная документация пользователя: <https://docs.mattermost.com/guides/messaging.html>
-- Официальная документация администратора: <https://docs.mattermost.com/guides/deployment.html>
-- Репозиторий кода главной ветки приложения: <https://github.com/mattermost/mattermost-server>
-- Магазин YunoHost: <https://apps.yunohost.org/app/mattermost>
-- Сообщите об ошибке: <https://github.com/YunoHost-Apps/mattermost_ynh/issues>
+- Репозиторий кода главной ветки приложения: <https://framagit.org/framasoft/framateam/mostlymatter>
+- Магазин YunoHost: <https://apps.yunohost.org/app/mostlymatter>
+- Сообщите об ошибке: <https://github.com/YunoHost-Apps/mostlymatter_ynh/issues>
 
 ## Информация для разработчиков
 
-Пришлите Ваш запрос на слияние в [ветку `testing`](https://github.com/YunoHost-Apps/mattermost_ynh/tree/testing).
+Пришлите Ваш запрос на слияние в [ветку `testing`](https://github.com/YunoHost-Apps/mostlymatter_ynh/tree/testing).
 
 Чтобы попробовать ветку `testing`, пожалуйста, сделайте что-то вроде этого:
 
 ```bash
-sudo yunohost app install https://github.com/YunoHost-Apps/mattermost_ynh/tree/testing --debug
+sudo yunohost app install https://github.com/YunoHost-Apps/mostlymatter_ynh/tree/testing --debug
 или
-sudo yunohost app upgrade mattermost -u https://github.com/YunoHost-Apps/mattermost_ynh/tree/testing --debug
+sudo yunohost app upgrade mostlymatter -u https://github.com/YunoHost-Apps/mostlymatter_ynh/tree/testing --debug
 ```
 
 **Больше информации о пакетировании приложений:** <https://yunohost.org/packaging_apps>
