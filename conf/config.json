@@ -117,7 +117,7 @@
     "ScheduledPosts": true
   },
   "TeamSettings": {
-    "SiteName": "Mattermost",
+    "SiteName": "Mostlymatter",
     "MaxUsersPerTeam": 50,
     "EnableJoinLeaveMessageByDefault": true,
     "EnableUserCreation": true,
