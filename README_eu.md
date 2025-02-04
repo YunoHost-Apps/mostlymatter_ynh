@@ -3,32 +3,22 @@ Ohart ongi: README hau automatikoki sortu da <https://github.com/YunoHost/apps/t
 EZ editatu eskuz.
 -->
 
-# Mattermost YunoHost-erako
+# Mostlymatter YunoHost-erako
 
-[![Integrazio maila](https://apps.yunohost.org/badge/integration/mattermost)](https://ci-apps.yunohost.org/ci/apps/mattermost/)
-![Funtzionamendu egoera](https://apps.yunohost.org/badge/state/mattermost)
-![Mantentze egoera](https://apps.yunohost.org/badge/maintained/mattermost)
+[![Integrazio maila](https://apps.yunohost.org/badge/integration/mostlymatter)](https://ci-apps.yunohost.org/ci/apps/mostlymatter/)
+![Funtzionamendu egoera](https://apps.yunohost.org/badge/state/mostlymatter)
+![Mantentze egoera](https://apps.yunohost.org/badge/maintained/mostlymatter)
 
-[![Instalatu Mattermost YunoHost-ekin](https://install-app.yunohost.org/install-with-yunohost.svg)](https://install-app.yunohost.org/?app=mattermost)
+[![Instalatu Mostlymatter YunoHost-ekin](https://install-app.yunohost.org/install-with-yunohost.svg)](https://install-app.yunohost.org/?app=mostlymatter)
 
 *[Irakurri README hau beste hizkuntzatan.](./ALL_README.md)*
 
-> *Pakete honek Mattermost YunoHost zerbitzari batean azkar eta zailtasunik gabe instalatzea ahalbidetzen dizu.*  
+> *Pakete honek Mostlymatter YunoHost zerbitzari batean azkar eta zailtasunik gabe instalatzea ahalbidetzen dizu.*  
 > *YunoHost ez baduzu, kontsultatu [gida](https://yunohost.org/install) nola instalatu ikasteko.*
 
 ## Aurreikuspena
 
-## Mattermost Team Edition
-
 A free-to-use, open source, self-hosted alternative to proprietary SaaS messaging. Team Edition is your open source “virtual office”, offering all the core productivity benefits of competing SaaS solutions. It deploys as a single Linux binary with PosgreSQL under an MIT license.
-
-## Mattermost Enterprise Edition
-
-To explore the benefits of Mattermost’s enterprise features, you can replace the Mattermost Team Edition binary with a Mattermost Enterprise Edition binary. This version supports upgrading to Mattermost Enterprise Edition E10 or E20.
-
-## YunoHost specific features
-
-This package can install the [*Entreprise Edition*](https://docs.mattermost.com/overview/product.html#mattermost-enterprise-edition) or the [*Team Edition*](https://docs.mattermost.com/overview/product.html#mattermost-team-edition).
 
 Mattermost Mobile and Desktop Apps are available [here](https://mattermost.com/download/)
 
@@ -49,27 +39,24 @@ Mattermost Mobile and Desktop Apps are available [here](https://mattermost.com/d
 
 ## Pantaila-argazkiak
 
-![Mattermost(r)en pantaila-argazkia](./doc/screenshots/screenshot.png)
+![Mostlymatter(r)en pantaila-argazkia](./doc/screenshots/screenshot.png)
 
 ## Dokumentazioa eta baliabideak
 
-- Aplikazioaren webgune ofiziala: <http://www.mattermost.org/>
-- Erabiltzaileen dokumentazio ofiziala: <https://docs.mattermost.com/guides/messaging.html>
-- Administratzaileen dokumentazio ofiziala: <https://docs.mattermost.com/guides/deployment.html>
-- Jatorrizko aplikazioaren kode-gordailua: <https://github.com/mattermost/mattermost-server>
-- YunoHost Denda: <https://apps.yunohost.org/app/mattermost>
-- Eman errore baten berri: <https://github.com/YunoHost-Apps/mattermost_ynh/issues>
+- Jatorrizko aplikazioaren kode-gordailua: <https://framagit.org/framasoft/framateam/mostlymatter>
+- YunoHost Denda: <https://apps.yunohost.org/app/mostlymatter>
+- Eman errore baten berri: <https://github.com/YunoHost-Apps/mostlymatter_ynh/issues>
 
 ## Garatzaileentzako informazioa
 
-Bidali `pull request`a [`testing` abarrera](https://github.com/YunoHost-Apps/mattermost_ynh/tree/testing).
+Bidali `pull request`a [`testing` abarrera](https://github.com/YunoHost-Apps/mostlymatter_ynh/tree/testing).
 
 `testing` abarra probatzeko, ondorengoa egin:
 
 ```bash
-sudo yunohost app install https://github.com/YunoHost-Apps/mattermost_ynh/tree/testing --debug
+sudo yunohost app install https://github.com/YunoHost-Apps/mostlymatter_ynh/tree/testing --debug
 edo
-sudo yunohost app upgrade mattermost -u https://github.com/YunoHost-Apps/mattermost_ynh/tree/testing --debug
+sudo yunohost app upgrade mostlymatter -u https://github.com/YunoHost-Apps/mostlymatter_ynh/tree/testing --debug
 ```
 
 **Informazio gehiago aplikazioaren paketatzeari buruz:** <https://yunohost.org/packaging_apps>
