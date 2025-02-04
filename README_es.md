@@ -18,7 +18,8 @@ No se debe editar a mano.
 
 ## Descripción general
 
-A free-to-use, open source, self-hosted alternative to proprietary SaaS messaging. Team Edition is your open source “virtual office”, offering all the core productivity benefits of competing SaaS solutions. It deploys as a single Linux binary with PosgreSQL under an MIT license.
+Mostlymatter is a fork of Mattermost meant to remove the users and messages limits.
+Mattermost is an open source platform for secure collaboration across the entire software development lifecycle. Mattermost is written in Go and React and runs as a single Linux binary with MySQL or PostgreSQL.
 
 Mattermost Mobile and Desktop Apps are available [here](https://mattermost.com/download/)
 
