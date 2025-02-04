@@ -1,0 +1,69 @@
+#!/bin/bash
+
+source _common.sh
+source /usr/share/yunohost/helpers
+
+#=================================================
+# ENSURE DOWNWARD COMPATIBILITY
+#=================================================
+
+ynh_app_setting_set_default --key=language --value="en"
+
+ynh_app_setting_set_default --key=version --value="Team"
+
+#=================================================
+# MIGRATING DATABASE
+#=================================================
+
+# Check if using MariaDB
+# This migration should be done before the upgrade
+if mysqlshow | grep -q "^| $db_name "; then
+    # Mattermost recommands PostgreSQL over MySQL (and doesn't support MariaDB at all)
+    # Migrate the database from MySQL/MariaDB to PostgreSQL
+    remove_psql_in_case_of_error=1
+    mariadb-to-pg
+fi
+
+#=================================================
+# STOP SYSTEMD SERVICE
+#=================================================
+ynh_script_progression "Stopping $app's systemd service..."
+
+ynh_systemctl --service=$app --action=stop --log_path=systemd
+
+#=================================================
+# DOWNLOAD, CHECK AND UNPACK SOURCE
+#=================================================
+ynh_script_progression "Upgrading source files..."
+
+if [ "$version" = "Enterprise" ]; then
+  ynh_setup_source --dest_dir="$install_dir" --source_id="enterprise" --full_replace --keep="plugins config/config.json"
+elif [ "$version" = "Team" ]; then
+  ynh_setup_source --dest_dir="$install_dir" --source_id="main" --full_replace --keep="plugins config/config.json"
+fi
+
+#=================================================
+# REAPPLY SYSTEM CONFIGURATIONS
+#=================================================
+ynh_script_progression "Upgrading system configurations related to $app..."
+
+ynh_config_add_nginx
+
+ynh_config_add_systemd
+
+yunohost service add $app --description="Collaboration platform built for developers" --log="/var/log/$app/$app.log"
+
+ynh_config_add_logrotate
+
+#=================================================
+# START SYSTEMD SERVICE
+#=================================================
+ynh_script_progression "Starting $app's systemd service..."
+
+ynh_systemctl --service=$app --action=start --log_path=systemd
+
+#=================================================
+# END OF SCRIPT
+#=================================================
+
+ynh_script_progression "Upgrade of $app completed"

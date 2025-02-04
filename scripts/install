@@ -1,0 +1,76 @@
+#!/bin/bash
+
+source _common.sh
+source /usr/share/yunohost/helpers
+
+#=================================================
+# INITIALIZE AND STORE SETTINGS
+#=================================================
+
+#smtp_user_pwd=$(ynh_string_random --length=24)
+email=$(ynh_user_get_info --username=$admin --key=mail)
+
+#=================================================
+# DOWNLOAD, CHECK AND UNPACK SOURCE
+#=================================================
+ynh_script_progression "Setting up source files..."
+
+if [ "$version" = "Enterprise" ]; then
+  ynh_setup_source --dest_dir="$install_dir" --source_id="enterprise"
+elif [ "$version" = "Team" ]; then
+  ynh_setup_source --dest_dir="$install_dir" --source_id="main"
+fi
+
+#=================================================
+# MODIFY A CONFIG FILE
+#=================================================
+ynh_script_progression "Updating configuration..."
+
+ynh_config_add --template="config.json" --destination="$install_dir/config/config.json"
+
+#=================================================
+# SYSTEM CONFIGURATION
+#=================================================
+ynh_script_progression "Adding system configurations related to $app..."
+
+ynh_config_add_nginx
+
+ynh_config_add_systemd
+
+yunohost service add $app --description="Collaboration platform built for developers" --log="/var/log/$app/$app.log"
+
+mkdir -p /var/log/$app
+chown $app -R "/var/log/$app"
+
+ynh_config_add_logrotate
+
+#=================================================
+# START SYSTEMD SERVICE
+#=================================================
+ynh_script_progression "Starting $app's systemd service..."
+
+ynh_systemctl --service=$app --action=start --log_path=systemd
+
+#=================================================
+# CREATE ADMIN AND FIRST TEAM
+#=================================================
+ynh_script_progression "Create the first administrator and team..."
+
+team_name=$(echo "$team_display_name" | iconv -f utf8 -t ascii//TRANSLIT//IGNORE | sed -e 's/[^[:alnum:]]/-/g' | tr -s '-' | tr A-Z a-z)
+
+export MMCTL_LOCAL=true
+export MMCTL_LOCAL_SOCKET_PATH="/var/run/${app}/mattermost_local.socket"
+
+ynh_hide_warnings sudo --preserve-env -u $app "$install_dir/bin/mmctl" user create --username "$admin" --email "$email" --password "$password" --locale "$language" --email-verified --system-admin
+ynh_hide_warnings sudo --preserve-env -u $app "$install_dir/bin/mmctl" team create --name "$team_name" --display_name "$team_display_name" --email "$email"
+ynh_hide_warnings sudo --preserve-env -u $app "$install_dir/bin/mmctl" team users add "$team_name" "$admin"
+
+# Disable mmctl passwordless access
+ynh_replace --match='"EnableLocalMode": true' --replace='"EnableLocalMode": false' --file="$install_dir/config/config.json"
+ynh_systemctl --service=$app --action=restart --log_path=systemd
+
+#=================================================
+# END OF SCRIPT
+#=================================================
+
+ynh_script_progression "Installation of $app completed"

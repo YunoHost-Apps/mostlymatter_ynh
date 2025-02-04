@@ -1,0 +1,109 @@
+packaging_format = 2
+
+id = "mattermost"
+name = "Mattermost"
+description.en = "Collaboration platform built for developers"
+description.fr = "Plateforme de collaboration conçue pour les développeurs"
+
+version = "10.4.2~ynh1"
+
+maintainers = ["pmorinerie"]
+
+[upstream]
+license = "GPL-3.0-only"
+website = "http://www.mattermost.org/"
+admindoc = "https://docs.mattermost.com/guides/deployment.html"
+userdoc = "https://docs.mattermost.com/guides/messaging.html"
+code = "https://github.com/mattermost/mattermost-server"
+
+[integration]
+yunohost = ">= 12.0.9.2"
+helpers_version = "2.1"
+architectures = ["amd64", "armhf", "arm64"]
+multi_instance = true
+
+ldap = false
+sso = false
+
+disk = "750M"
+ram.build = "350M"
+ram.runtime = "50M"
+
+[install]
+    [install.domain]
+    type = "domain"
+
+    [install.path]
+    type = "path"
+    default = "/mattermost"
+
+    [install.init_main_permission]
+    help.en = "If visitors selected, Mattermost will be accessible by users without a YunoHost account. This can be changed later via the webadmin."
+    help.fr = "Si « Visiteurs » est sélectionné, Mattermost sera accessible même par les utilisateurs n’ayant pas de compte YunoHost. Vous pourrez changer ce réglage plus tard dans l’interface d’administration."
+    type = "group"
+    default = "visitors"
+
+    [install.admin]
+    type = "user"
+
+    [install.password]
+    type = "password"
+
+    [install.version]
+    ask.en = "Choose the version you want to install"
+    ask.fr = "Choisissez la version que vous souhaitez installer"
+    help.en = "Use Team Edition for the open source version (ARM, ARM64 and x86-64 support) or Enterprise Edition if you want to use a license (x86-64 and ARM64 support)"
+    help.fr = "Utilisez Team Edition pour la version open-source (prise en charge ARM, ARM64 et x86-64) ou Édition Enterprise si vous souhaitez utiliser une licence (prise en charge x86-64 et ARM64)"
+    type = "select"
+    choices = ["Enterprise", "Team"]
+    default = "Team"
+
+    [install.language]
+    ask.en = "Choose the language of the chat for the admin"
+    ask.fr = "Choissisez la langue utilisée par le compte administrateur"
+    type = "select"
+    choices = ["de", "en", "es", "fr", "it", "pt"]
+    default = "fr"
+
+    [install.team_display_name]
+    ask.en = "Choose a Team name"
+    ask.fr = "Choisissez le nom de l’équipe"
+    type = "string"
+    example = "Team"
+    default = "Team"
+
+[resources]
+    [resources.sources]
+
+        [resources.sources.main]
+        amd64.url = "https://releases.mattermost.com/10.4.2/mattermost-team-10.4.2-linux-amd64.tar.gz"
+        amd64.sha256 = "25c4d26bac4065441a3f0a85349a390286ee4a77f5c207d6a10c2497e425b8cc"
+        arm64.url = "https://releases.mattermost.com/10.4.2/mattermost-team-10.4.2-linux-arm64.tar.gz"
+        arm64.sha256 = "1bad9c6ff5302998721fec1c6b482d7a0b69973540a052f8313a81ba728e28be"
+        armhf.url = "https://github.com/remiheens/mattermost-docker-arm/releases/download/v10.4.2/mattermost-v10.4.2-linux-arm.tar.gz"
+        armhf.sha256 = "8ba7d5701b80a188c701c50de4fd0feabfbde1344a6c98e1a1ff3b5c489be71c"
+
+        [resources.sources.enterprise]
+        amd64.url = "https://releases.mattermost.com/10.4.2/mattermost-enterprise-10.4.2-linux-amd64.tar.gz"
+        amd64.sha256 = "7dc8400f27958f7be545088c343deecda40c754c4f4e13e97205fa75b2ddc1e7"
+        arm64.url = "https://releases.mattermost.com/10.4.2/mattermost-enterprise-10.4.2-linux-arm64.tar.gz"
+        arm64.sha256 = "6b87a7f672638e2dad7b7d867d499ddd508e6d3948fdc69dd27a82bac996969e"
+
+    [resources.system_user]
+    allow_email = true
+
+    [resources.install_dir]
+    group = "www-data:r-x"
+    
+    [resources.data_dir]
+    
+    [resources.ports]
+
+    [resources.permissions]
+    main.url = "/"
+
+    [resources.apt]
+    packages = "postgresql, pgloader"
+
+    [resources.database]
+    type = "postgresql"
