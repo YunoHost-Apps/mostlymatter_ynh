@@ -14,7 +14,7 @@ license = "Apache-2.0"
 code = "https://framagit.org/framasoft/framateam/mostlymatter"
 
 [integration]
-yunohost = ">= 12.0.9.2"
+yunohost = ">= 12.0.9"
 helpers_version = "2.1"
 architectures = ["amd64", "armhf", "arm64"]
 multi_instance = true
@@ -76,7 +76,7 @@ ram.runtime = "50M"
         extract = false
         rename = "mostlymatter"
         amd64.url = "https://packages.framasoft.org/projects/mostlymatter/mostlymatter-v10.4.2"
-        amd64.sha256 = "2a1ecd13b44a7f5392c2b53fbb2ac0c0f483450620590e61b6140081356c1653"
+        amd64.sha256 = "0d2b6d3c4940cf3627b1253fe7fe49e0f9f7f673ca8911fc765d8a8c59f95cad"
 
     [resources.system_user]
     allow_email = true

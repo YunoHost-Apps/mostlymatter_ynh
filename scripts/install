@@ -15,10 +15,10 @@ email=$(ynh_user_get_info --username=$admin --key=mail)
 ynh_script_progression "Setting up source files..."
 
 ynh_setup_source --dest_dir="$install_dir" --source_id="main"
-
 ynh_setup_source --dest_dir="$install_dir/bin" --source_id="mostlymatter"
 
 chmod +x "$install_dir/bin/mostlymatter"
+chown -R "$app:www-data" "$install_dir/bin"
 
 #=================================================
 # MODIFY A CONFIG FILE

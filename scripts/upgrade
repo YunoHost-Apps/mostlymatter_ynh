@@ -22,10 +22,10 @@ ynh_systemctl --service=$app --action=stop --log_path=systemd
 ynh_script_progression "Upgrading source files..."
 
 ynh_setup_source --dest_dir="$install_dir" --source_id="main" --full_replace --keep="plugins config/config.json"
-
 ynh_setup_source --dest_dir="$install_dir/bin" --source_id="mostlymatter"
 
 chmod +x "$install_dir/bin/mostlymatter"
+chown -R "$app:www-data" "$install_dir/bin"
 
 #=================================================
 # REAPPLY SYSTEM CONFIGURATIONS
