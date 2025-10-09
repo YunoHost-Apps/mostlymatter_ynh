@@ -5,7 +5,7 @@ name = "Mostlymatter"
 description.en = "Collaboration platform built for developers"
 description.fr = "Plateforme de collaboration conçue pour les développeurs"
 
-version = "10.4.2~ynh1"
+version = "10.6.1~ynh1"
 
 maintainers = []
 
@@ -20,6 +20,7 @@ architectures = ["amd64", "armhf", "arm64"]
 multi_instance = true
 
 ldap = false
+
 sso = false
 
 disk = "750M"
@@ -64,19 +65,21 @@ ram.runtime = "50M"
     [resources.sources]
 
         [resources.sources.main]
-        amd64.url = "https://releases.mattermost.com/10.4.2/mattermost-team-10.4.2-linux-amd64.tar.gz"
-        amd64.sha256 = "25c4d26bac4065441a3f0a85349a390286ee4a77f5c207d6a10c2497e425b8cc"
-        arm64.url = "https://releases.mattermost.com/10.4.2/mattermost-team-10.4.2-linux-arm64.tar.gz"
-        arm64.sha256 = "1bad9c6ff5302998721fec1c6b482d7a0b69973540a052f8313a81ba728e28be"
-        armhf.url = "https://github.com/remiheens/mattermost-docker-arm/releases/download/v10.4.2/mattermost-v10.4.2-linux-arm.tar.gz"
-        armhf.sha256 = "8ba7d5701b80a188c701c50de4fd0feabfbde1344a6c98e1a1ff3b5c489be71c"
+        amd64.url = "https://releases.mattermost.com/10.6.1/mattermost-team-10.6.1-linux-amd64.tar.gz"
+        amd64.sha256 = "4fcc6417c31634b23b1acf2785838019ea7a2c482b4a59b36cff9f94e383c7a4"
+        arm64.url = "https://releases.mattermost.com/10.6.1/mattermost-team-10.6.1-linux-arm64.tar.gz"
+        arm64.sha256 = "745ca5ec9259d906891afdc5bc9ada38e22e28b8bdc56eb0f9fea9c9caaa3c8f"
+        armhf.url = "https://github.com/remiheens/mattermost-docker-arm/releases/download/v10.5.1/mattermost-v10.5.1-linux-arm.tar.gz"
+        armhf.sha256 = "16d6e0f70b670dab570c3ec8c0c936a33158edb9dc025e6c2a36c8e19cc909bb"
 
         [resources.sources.mostlymatter]
         in_subdir = false
         extract = false
         rename = "mostlymatter"
-        amd64.url = "https://packages.framasoft.org/projects/mostlymatter/mostlymatter-v10.4.2"
-        amd64.sha256 = "0d2b6d3c4940cf3627b1253fe7fe49e0f9f7f673ca8911fc765d8a8c59f95cad"
+        amd64.url = "https://packages.framasoft.org/projects/mostlymatter/mostlymatter-amd64-v10.6.1"
+        amd64.sha256 = "9ee6d363fd9d128893e7d8b1ca03c4fafb211411cb7fe46ef0bd0595342881ac"
+        arm64.url = "https://packages.framasoft.org/projects/mostlymatter/mostlymatter-arm64-v10.6.1"
+        arm64.sha256 = "2eae2f1dd0fe7c060826549dcb9fed268c2dbf3622106893cb0a0ed2722432d5"
 
     [resources.system_user]
     allow_email = true
