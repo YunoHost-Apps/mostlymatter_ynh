@@ -71,6 +71,7 @@ ram.runtime = "50M"
         armhf.url = "https://github.com/remiheens/mattermost-docker-arm/releases/download/v11.0.2/mattermost-v11.0.2-linux-arm.tar.gz"
         armhf.sha256 = "ba7cfeb7676cdfa22a9bb8d3baf24ed5a666e1cc9ad25aff4e557fe5a7fc49d1"
 
+        [resources.sources.mostlymatter]
         in_subdir = false
         extract = false
         rename = "mostlymatter"
@@ -78,7 +79,6 @@ ram.runtime = "50M"
         amd64.sha256 = "efd5166fbf2e3f87c27fa06fe03c02f7745ca3f58000e435a5afbb6a8a2a0d20"
         arm64.url = "https://packages.framasoft.org/projects/mostlymatter/mostlymatter-arm64-v11.0.6"
         arm64.sha256 = "3bf1346d1e58889d2bc5643a1d6166f7c998d5428faa06664cf962eea35db81e"
-
 
     [resources.system_user]
     allow_email = true
