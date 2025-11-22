@@ -14,6 +14,7 @@ Restart=always
 RestartSec=10
 RuntimeDirectory=__APP__
 LimitNOFILE=49152
+Environment="MM_CALLS_GROUP_CALLS_ALLOWED=true"
 
 # Sandboxing options to harden security
 # Depending on specificities of your service/app, you may need to tweak these 
