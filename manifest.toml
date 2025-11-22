@@ -32,7 +32,7 @@ ram.runtime = "50M"
 
     [install.path]
     type = "path"
-    default = "/mattermost"
+    default = "/mostlymatter"
 
     [install.init_main_permission]
     help.en = "If visitors selected, Mostlymatter will be accessible by users without a YunoHost account. This can be changed later via the webadmin."
