@@ -14,7 +14,7 @@ license = "Apache-2.0"
 code = "https://framagit.org/framasoft/framateam/mostlymatter"
 
 [integration]
-yunohost = ">= 12.1.17"
+yunohost = ">= 12.1.38"
 helpers_version = "2.1"
 architectures = ["amd64", "armhf", "arm64"]
 multi_instance = true
